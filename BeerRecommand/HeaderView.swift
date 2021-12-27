@@ -7,21 +7,23 @@
 
 import UIKit
 import Foundation
-import SnapKit
 
 class HeaderView: UIView {
+  
+  // MARK: - UI
   let containerView = UIView()
   let imageView: UIImageView = {
     let v = UIImageView()
     v.clipsToBounds = true
-    v.contentMode = .scaleAspectFit
+    v.contentMode = .scaleAspectFill
     return v
   }()
   
-  var imageViewHeight = NSLayoutConstraint()
-  var imageViewBottom = NSLayoutConstraint()
-  var contentViewHeight = NSLayoutConstraint()
+  private var imageViewHeight = NSLayoutConstraint()
+  private var imageViewBottom = NSLayoutConstraint()
+  private var containerViewHeight = NSLayoutConstraint()
   
+  // MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
     createViews()
@@ -32,6 +34,7 @@ class HeaderView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // MARK: - Configure
   private func createViews() {
     addSubview(containerView)
     containerView.addSubview(imageView)
@@ -41,25 +44,28 @@ class HeaderView: UIView {
     containerView.translatesAutoresizingMaskIntoConstraints = false
     imageView.translatesAutoresizingMaskIntoConstraints = false
     
+    NSLayoutConstraint.activate([
+      widthAnchor.constraint(equalTo: containerView.widthAnchor),
+      centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+      heightAnchor.constraint(equalTo: containerView.heightAnchor)
+    ])
     
-    containerView.snp.makeConstraints {
-      $0.width.equalTo(self.snp.width)
-      $0.height.equalTo(self.snp.height)
-    }
-    
-    imageView.snp.makeConstraints {
-      $0.centerX.equalTo(self.snp.centerX)
-      $0.bottom.equalTo(containerView.snp.bottom)
-      $0.height.equalTo(containerView.snp.height)
-    }
+    containerView.widthAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+    containerViewHeight = containerView.heightAnchor.constraint(equalTo: self.heightAnchor)
+    containerViewHeight.isActive = true
     
     imageViewBottom = imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+    imageViewBottom.isActive = true
+    
     imageViewHeight = imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
+    imageViewHeight.isActive = true
   }
   
+  // MARK: - ScrollViewDidScroll
    public func scrollViewDidScroll(scrollView: UIScrollView) {
-     contentViewHeight.constant = scrollView.contentInset.top
-     let offsetY = (scrollView.contentOffset.y + scrollView.contentInset.top)
+     containerViewHeight.constant = scrollView.contentInset.top
+     
+     let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top)
      containerView.clipsToBounds = offsetY <= 0
      imageViewBottom.constant = offsetY >= 0 ? 0 : -offsetY / 2
      imageViewHeight.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)

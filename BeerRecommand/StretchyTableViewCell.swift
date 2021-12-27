@@ -16,8 +16,6 @@ class StretchyTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-//    setupUI()
-//    setupConstraints()
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
