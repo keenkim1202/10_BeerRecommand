@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C215A0B2779AA20006EBD2B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C215A0A2779AA20006EBD2B /* APIService.swift */; };
 		1CAF3DC72771A64B00B23242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAF3DC62771A64B00B23242 /* AppDelegate.swift */; };
 		1CAF3DC92771A64B00B23242 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAF3DC82771A64B00B23242 /* SceneDelegate.swift */; };
 		1CAF3DD02771A64B00B23242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAF3DCF2771A64B00B23242 /* Assets.xcassets */; };
@@ -15,9 +16,13 @@
 		1CAF3DE02771A90000B23242 /* StretchyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAF3DDF2771A90000B23242 /* StretchyTableViewCell.swift */; };
 		1CC0DB1E2771C88100001303 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0DB1D2771C88100001303 /* HeaderView.swift */; };
 		1CDC057C2771BB61003FD771 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDC057B2771BB61003FD771 /* ViewController.swift */; };
+		1CE84232278022BF003259A1 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE84231278022BF003259A1 /* Beer.swift */; };
+		1CE8423427802749003259A1 /* BeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8423327802749003259A1 /* BeerViewModel.swift */; };
+		1CE8423627802762003259A1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8423527802762003259A1 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C215A0A2779AA20006EBD2B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1CAF3DC32771A64B00B23242 /* BeerRecommand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerRecommand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAF3DC62771A64B00B23242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CAF3DC82771A64B00B23242 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +32,9 @@
 		1CAF3DDF2771A90000B23242 /* StretchyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableViewCell.swift; sourceTree = "<group>"; };
 		1CC0DB1D2771C88100001303 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		1CDC057B2771BB61003FD771 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CE84231278022BF003259A1 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		1CE8423327802749003259A1 /* BeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewModel.swift; sourceTree = "<group>"; };
+		1CE8423527802762003259A1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,10 @@
 				1CAF3DC82771A64B00B23242 /* SceneDelegate.swift */,
 				1CDC057B2771BB61003FD771 /* ViewController.swift */,
 				1CC0DB1D2771C88100001303 /* HeaderView.swift */,
+				1CE84231278022BF003259A1 /* Beer.swift */,
+				1CE8423327802749003259A1 /* BeerViewModel.swift */,
+				1C215A0A2779AA20006EBD2B /* APIService.swift */,
+				1CE8423527802762003259A1 /* Observable.swift */,
 				1CAF3DDF2771A90000B23242 /* StretchyTableViewCell.swift */,
 				1CAF3DCF2771A64B00B23242 /* Assets.xcassets */,
 				1CAF3DD12771A64B00B23242 /* LaunchScreen.storyboard */,
@@ -148,10 +160,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE8423427802749003259A1 /* BeerViewModel.swift in Sources */,
+				1C215A0B2779AA20006EBD2B /* APIService.swift in Sources */,
 				1CDC057C2771BB61003FD771 /* ViewController.swift in Sources */,
 				1CC0DB1E2771C88100001303 /* HeaderView.swift in Sources */,
+				1CE8423627802762003259A1 /* Observable.swift in Sources */,
 				1CAF3DC72771A64B00B23242 /* AppDelegate.swift in Sources */,
 				1CAF3DC92771A64B00B23242 /* SceneDelegate.swift in Sources */,
+				1CE84232278022BF003259A1 /* Beer.swift in Sources */,
 				1CAF3DE02771A90000B23242 /* StretchyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

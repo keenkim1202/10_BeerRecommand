@@ -14,24 +14,30 @@ class StretchyTableViewCell: UITableViewCell {
   
   let label = UILabel()
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+    setupUI()
+    setupConstraints()
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   func setupUI() {
     self.addSubview(label)
     label.textColor = .blue
+    label.backgroundColor = .red
+    label.text = "test text"
+    label.translatesAutoresizingMaskIntoConstraints = false
+    contentView.addSubview(label)
   }
   
   func setupConstraints() {
     label.snp.makeConstraints { make in
-//      make.leading.equalToSuperview().inset(10)
+     make.leading.equalToSuperview().inset(10)
       make.centerX.centerY.equalTo(self.contentView)
-//      make.trailing.equalToSuperview().inset(10)
+     make.trailing.equalToSuperview().inset(10)
     }
   }
   

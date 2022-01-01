@@ -11,6 +11,7 @@ import SnapKit
 class ViewController: UIViewController {
   
   // MARK: - Properties
+  private var viewModel = BeerViewModel()
   let dummyList: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
   
   // MARK: - UI
@@ -20,8 +21,15 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.viewModel.fetchBeer()
+    
+    viewModel.beer.bind { beer in
+      self.tableView.reloadData()
+    }
+    
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.register(StretchyTableViewCell.self, forCellReuseIdentifier: StretchyTableViewCell.identifier)
     
     setupUI()
@@ -51,13 +59,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     return 1
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return dummyList.count
+    return 1
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: StretchyTableViewCell.identifier) as? StretchyTableViewCell else { return UITableViewCell() }
-    cell.textLabel?.text = "\(dummyList[indexPath.row])"
-    cell.backgroundColor = .systemMint
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: StretchyTableViewCell.identifier, for: indexPath) as? StretchyTableViewCell else { return UITableViewCell() }
+    let data = viewModel.beer.value
+    print("data - ", data)
+    cell.label.text = "\(data.name), \(data.tagline)"
+    cell.label.backgroundColor = .orange
     return cell
   }
   
